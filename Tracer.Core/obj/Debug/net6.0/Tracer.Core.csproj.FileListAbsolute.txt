@@ -1,0 +1,10 @@
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\bin\Debug\net6.0\Tracer.Core.deps.json
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\bin\Debug\net6.0\Tracer.Core.dll
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\bin\Debug\net6.0\Tracer.Core.pdb
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\Tracer.Core.csproj.AssemblyReference.cache
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\Tracer.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\Tracer.Core.csproj.CoreCompileInputs.cache
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\Tracer.Core.dll
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\refint\Tracer.Core.dll
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\Tracer.Core.pdb
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Core\obj\Debug\net6.0\ref\Tracer.Core.dll

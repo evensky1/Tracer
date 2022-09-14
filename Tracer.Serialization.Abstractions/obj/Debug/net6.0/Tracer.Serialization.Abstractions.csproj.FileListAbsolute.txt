@@ -1,0 +1,12 @@
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\bin\Debug\net6.0\Tracer.Serialization.Abstractions.deps.json
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\bin\Debug\net6.0\Tracer.Serialization.Abstractions.dll
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\bin\Debug\net6.0\Tracer.Serialization.Abstractions.pdb
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.csproj.AssemblyReference.cache
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.AssemblyInfoInputs.cache
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.AssemblyInfo.cs
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.dll
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\refint\Tracer.Serialization.Abstractions.dll
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\Tracer.Serialization.Abstractions.pdb
+C:\Users\fromt\RiderProjects\Tracer\Tracer.Serialization.Abstractions\obj\Debug\net6.0\ref\Tracer.Serialization.Abstractions.dll
