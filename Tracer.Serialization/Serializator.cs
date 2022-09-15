@@ -51,7 +51,14 @@ public class Serializator
 
     private void MySerializer(TraceResult traceResult, ITraceResultSerializer serializer)
     {
-        using var fs = new FileStream($"result.{serializer.Format}", FileMode.Create);
-        serializer.Serialize(traceResult, fs);
+        try
+        {
+            using var fs = new FileStream($"result.{serializer.Format}", FileMode.Create);
+            serializer.Serialize(traceResult, fs);
+        }
+        catch (Exception e)
+        {
+            Console.Error.WriteLine(e.Message);
+        }
     }
 }
