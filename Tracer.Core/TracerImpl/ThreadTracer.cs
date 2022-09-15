@@ -13,7 +13,7 @@ public class ThreadTracer
     {
         _processingMethods = new();
         ProcessedMethods = new();
-        ThreadTimer = new Stopwatch();
+        ThreadTimer = new ();
         ThreadTimer.Start();
         Id = id;
     }
@@ -28,7 +28,7 @@ public class ThreadTracer
 
     public void StopTrace()
     {
-        MethodTracer current = _processingMethods.Pop();
+        var current = _processingMethods.Pop();
         current.StopTrace();
 
         MethodTracer parent;
