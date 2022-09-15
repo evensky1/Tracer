@@ -29,7 +29,6 @@ public class ThreadTracer
     public void StopTrace()
     {
         MethodTracer current = _processingMethods.Pop();
-        // while (!_processingMethods.TryPop(out current)) { } //here lies eternal cycle when StopTrace works on MyMethod
         current.stopTrace();
 
         MethodTracer parent;
@@ -42,11 +41,7 @@ public class ThreadTracer
         {
             ProcessedMethods.Add(current.getTraceResult());
         }
-
-        Console.WriteLine($"Ms: {current.Timer.Elapsed.Milliseconds:0000} \n" +
-                          $"Name: {current.Name} \n" +
-                          $"Class name: {current.ClassName} \n" +
-                          $"Childs: {current.getChildrens()}");
+        
     }
 
     public void stopTimer()

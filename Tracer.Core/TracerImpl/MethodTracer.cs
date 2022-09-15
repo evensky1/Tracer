@@ -40,6 +40,8 @@ public class MethodTracer
 
     public MethodResult getTraceResult()
     {
-        return new MethodResult(Name, ClassName, Timer.Elapsed, InnerMethods);
+        var mappedMethods = new List<MethodResult>();
+        InnerMethods.ForEach(m => mappedMethods.Add(m.getTraceResult()));
+        return new MethodResult(Name, ClassName, Timer.Elapsed, mappedMethods);
     }
 }
