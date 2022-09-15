@@ -16,52 +16,42 @@ public class Serializator
     private const string YAML_PATH =
         "C:\\Users\\fromt\\RiderProjects\\Tracer.Serialization\\Tracer.Serialization.Yaml\\bin\\Debug\\net6.0\\Tracer.Serialization.Yaml.dll";
 
+    private const string XML_TYPE = "Tracer.Serialization.Xml.XmlTraceResultSerializer";
+    private const string JSON_TYPE = "Tracer.Serialization.Json.JsonTraceResultSerializer";
+    private const string YAML_TYPE = "Tracer.Serialization.Yaml.YamlTraceResultSerializer";
+
     public Serializator()
     {
     }
 
     public void SerializeXml(TraceResult traceResult)
     {
-        var assembly = Assembly.LoadFrom(XML_PATH);
-
-        Type xmlType = assembly.GetType("Tracer.Serialization.Xml.XmlTraceResultSerializer");
-
-        var xmlSerializer = (ITraceResultSerializer)Activator.CreateInstance(xmlType);
-
-        using var fs = new FileStream($"result.{xmlSerializer.Format}", FileMode.OpenOrCreate);
-
-        xmlSerializer.Serialize(traceResult, fs);
-
-        Console.WriteLine($"Successfully serialized into {fs.Name}");
+        var serializator = MyLoader(XML_PATH, XML_TYPE);
+        MySerializer(traceResult, serializator);
     }
 
     public void SerializeJson(TraceResult traceResult)
     {
-        var assembly = Assembly.LoadFrom(JSON_PATH);
-
-        Type jsonType = assembly.GetType("Tracer.Serialization.Json.JsonTraceResultSerializer");
-
-        var jsonSerializer = (ITraceResultSerializer)Activator.CreateInstance(jsonType);
-
-        using var fs = new FileStream($"result.{jsonSerializer.Format}", FileMode.OpenOrCreate);
-
-        jsonSerializer.Serialize(traceResult, fs);
-
-        Console.WriteLine($"Successfully serialized into {fs.Name}");
+        var serializator = MyLoader(JSON_PATH, JSON_TYPE);
+        MySerializer(traceResult, serializator);
     }
 
     public void SerializeYaml(TraceResult traceResult)
     {
-        var assembly = Assembly.LoadFrom(YAML_PATH);
+        var serializator = MyLoader(YAML_PATH, YAML_TYPE);
+        MySerializer(traceResult, serializator);
+    }
 
-        Type yamlType = assembly.GetType("Tracer.Serialization.Yaml.YamlTraceResultSerializer");
+    private ITraceResultSerializer MyLoader(string path, string typeName)
+    {
+        var assembly = Assembly.LoadFrom(path);
+        var type = assembly.GetType(typeName);
+        return (ITraceResultSerializer)Activator.CreateInstance(type);
+    }
 
-        var yamlSerializer = (ITraceResultSerializer)Activator.CreateInstance(yamlType);
-
-        using var fs = new FileStream($"result.{yamlSerializer.Format}", FileMode.OpenOrCreate);
-
-        yamlSerializer.Serialize(traceResult, fs);
-
-        Console.WriteLine($"Successfully serialized into {fs.Name}");
+    private void MySerializer(TraceResult traceResult, ITraceResultSerializer serializer)
+    {
+        using var fs = new FileStream($"result.{serializer.Format}", FileMode.OpenOrCreate);
+        serializer.Serialize(traceResult, fs);
     }
 }
