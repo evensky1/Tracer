@@ -3,12 +3,12 @@
 public class ThreadResult
 {
     public int Id { get; }
-    public TimeSpan Time { get; }
+    public string Time { get; }
     public IReadOnlyList<MethodResult> methods { get; }
 
     public ThreadResult() {}
     
-    public ThreadResult(int id, TimeSpan time, IReadOnlyList<MethodResult> methods)
+    public ThreadResult(int id, string time, IReadOnlyList<MethodResult> methods)
     {
         Id = id;
         Time = time;

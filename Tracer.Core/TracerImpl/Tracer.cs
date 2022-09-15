@@ -29,7 +29,7 @@ public class Tracer : ITracer
         
         foreach (var tv in _tracers.Values)
         {
-            _completeTracers.Add(new ThreadResult(tv.Id, tv.ThreadTimer.Elapsed, tv.ProcessedMethods));
+            _completeTracers.Add(new ThreadResult(tv.Id, $"{tv.ThreadTimer.ElapsedMilliseconds}ms", tv.ProcessedMethods));
         }
         
         return new TraceResult(_completeTracers);

@@ -29,28 +29,28 @@ public class ThreadTracer
     public void StopTrace()
     {
         MethodTracer current = _processingMethods.Pop();
-        current.stopTrace();
+        current.StopTrace();
 
         MethodTracer parent;
         if (_processingMethods.TryPeek(out parent)) 
         {
-            parent.addChild(current);
+            parent.AddChild(current);
         }
 
         if (_processingMethods.Count == 0)
         {
-            ProcessedMethods.Add(current.getTraceResult());
+            ProcessedMethods.Add(current.GetTraceResult());
         }
         
     }
 
-    public void stopTimer()
+    public void StopTimer()
     {
         ThreadTimer.Stop();
     }
 
     public ThreadResult GetTraceResult()
     {
-        return new ThreadResult(Id, ThreadTimer.Elapsed, ProcessedMethods);
+        return new ThreadResult(Id, $"{ThreadTimer.ElapsedMilliseconds}ms", ProcessedMethods);
     }
 }

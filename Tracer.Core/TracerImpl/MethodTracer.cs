@@ -19,29 +19,29 @@ public class MethodTracer
         Timer.Start();
     }
 
-    public MethodTracer stopTrace() 
+    public MethodTracer StopTrace() 
     {
         Timer.Stop();
         return this;
     }
 
-    public void addChild(MethodTracer methodTracer)
+    public void AddChild(MethodTracer methodTracer)
     {
         InnerMethods.Add(methodTracer);
         InnerMethods.Append(methodTracer);
     }
 
-    public string getChildrens()
+    public string GetChildrens()
     {
         var result = new StringBuilder("\n");
         InnerMethods.ForEach(m => result.Append($"{m.Name}\n"));
         return result.ToString();
     }
 
-    public MethodResult getTraceResult()
+    public MethodResult GetTraceResult()
     {
         var mappedMethods = new List<MethodResult>();
-        InnerMethods.ForEach(m => mappedMethods.Add(m.getTraceResult()));
-        return new MethodResult(Name, ClassName, Timer.Elapsed, mappedMethods);
+        InnerMethods.ForEach(m => mappedMethods.Add(m.GetTraceResult()));
+        return new MethodResult(Name, ClassName, $"{Timer.Elapsed.Milliseconds}ms", mappedMethods);
     }
 }
