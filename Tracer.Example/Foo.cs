@@ -63,6 +63,6 @@ public class MainClass
         temp.MyMethod();
         var smth = tracer.GetTraceResult();
         var serializator = new Serializator();
-        serializator.SerializeYaml(smth);
+        serializator.SerializeXml(smth);
     }
 }
