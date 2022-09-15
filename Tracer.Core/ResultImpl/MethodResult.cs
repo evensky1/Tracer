@@ -7,6 +7,7 @@ public class MethodResult
     public TimeSpan Time { get; }
     public List<MethodTracer> InnerMethods { get; }
 
+    public MethodResult() {}
     public MethodResult(string name, string className, TimeSpan time, List<MethodTracer> innerMethods)
     {
         Name = name;

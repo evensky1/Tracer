@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Abstra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Example", "Tracer.Example\Tracer.Example.csproj", "{9569D57D-FDF5-4977-86D3-5C00713CA034}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization", "Tracer.Serialization\Tracer.Serialization.csproj", "{FB7571CD-CC87-44E2-B823-769EC6013D24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9569D57D-FDF5-4977-86D3-5C00713CA034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9569D57D-FDF5-4977-86D3-5C00713CA034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9569D57D-FDF5-4977-86D3-5C00713CA034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

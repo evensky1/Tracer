@@ -6,6 +6,8 @@ public class ThreadResult
     public TimeSpan Time { get; }
     public IReadOnlyList<MethodResult> methods { get; }
 
+    public ThreadResult() {}
+    
     public ThreadResult(int id, TimeSpan time, IReadOnlyList<MethodResult> methods)
     {
         Id = id;

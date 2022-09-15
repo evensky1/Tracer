@@ -1,4 +1,5 @@
 ﻿using Tracer.Core;
+using Tracer.Serialization;
 using Tracers = Tracer.Core.Tracer;
 
 namespace Tracer.Example;
@@ -61,5 +62,7 @@ public class MainClass
         var temp = new Foo(tracer);
         temp.MyMethod();
         var smth = tracer.GetTraceResult();
+        var serializator = new Serializator();
+        serializator.SerializeYaml(smth);
     }
 }
