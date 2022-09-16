@@ -46,7 +46,6 @@ public class ThreadTracer
     }
     public ThreadResult GetTraceResult()
     {
-        
         return new ThreadResult(Id, $"{_time}ms", ProcessedMethods);
     }
 }
