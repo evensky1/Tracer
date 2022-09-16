@@ -2,13 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Core", "Tracer.Core\Tracer.Core.csproj", "{0B9861E5-7AA9-494E-9A63-8D9EF3DA31DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Core.Tests", "Tracer.Core.Tests\Tracer.Core.Tests.csproj", "{F1FB0D4F-5CD3-4D82-B486-E3FD0AFBDB2D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Abstractions", "Tracer.Serialization.Abstractions\Tracer.Serialization.Abstractions.csproj", "{D0A6E400-1788-48FA-9DD3-CAFD63F7AFD3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Example", "Tracer.Example\Tracer.Example.csproj", "{9569D57D-FDF5-4977-86D3-5C00713CA034}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization", "Tracer.Serialization\Tracer.Serialization.csproj", "{FB7571CD-CC87-44E2-B823-769EC6013D24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Core.Tests", "Tracer.Core.Tests\Tracer.Core.Tests.csproj", "{9FD65B14-4B03-4434-AF04-4CF011CFC840}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,10 +20,6 @@ Global
 		{0B9861E5-7AA9-494E-9A63-8D9EF3DA31DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B9861E5-7AA9-494E-9A63-8D9EF3DA31DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B9861E5-7AA9-494E-9A63-8D9EF3DA31DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1FB0D4F-5CD3-4D82-B486-E3FD0AFBDB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1FB0D4F-5CD3-4D82-B486-E3FD0AFBDB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1FB0D4F-5CD3-4D82-B486-E3FD0AFBDB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1FB0D4F-5CD3-4D82-B486-E3FD0AFBDB2D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D0A6E400-1788-48FA-9DD3-CAFD63F7AFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D0A6E400-1788-48FA-9DD3-CAFD63F7AFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A6E400-1788-48FA-9DD3-CAFD63F7AFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,5 +32,9 @@ Global
 		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB7571CD-CC87-44E2-B823-769EC6013D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD65B14-4B03-4434-AF04-4CF011CFC840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD65B14-4B03-4434-AF04-4CF011CFC840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD65B14-4B03-4434-AF04-4CF011CFC840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD65B14-4B03-4434-AF04-4CF011CFC840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
