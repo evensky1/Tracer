@@ -8,13 +8,13 @@ public class ThreadTracer
     private readonly Stack<MethodTracer> _processingMethods;
     public List<MethodResult> ProcessedMethods { get; }
     public int Id { get; }
-    public Stopwatch ThreadTimer { get; }
+
+    private long _time;
+    
     public ThreadTracer(int id)
     {
         _processingMethods = new();
         ProcessedMethods = new();
-        ThreadTimer = new ();
-        ThreadTimer.Start();
         Id = id;
     }
 
@@ -39,18 +39,14 @@ public class ThreadTracer
 
         if (_processingMethods.Count == 0)
         {
+            _time += current.Timer.ElapsedMilliseconds;
             ProcessedMethods.Add(current.GetTraceResult());
         }
         
     }
-
-    public void StopTimer()
-    {
-        ThreadTimer.Stop();
-    }
-
     public ThreadResult GetTraceResult()
     {
-        return new ThreadResult(Id, $"{ThreadTimer.ElapsedMilliseconds}ms", ProcessedMethods);
+        
+        return new ThreadResult(Id, $"{_time}ms", ProcessedMethods);
     }
 }
