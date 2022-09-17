@@ -13,8 +13,8 @@ public class Tracer : ITracer
 
     public void StartTrace()
     {
-        var temp = new ThreadTracer(Thread.CurrentThread.ManagedThreadId);
-        _tracers.GetOrAdd(Thread.CurrentThread.ManagedThreadId, temp).StartTrace();
+        var threadId = Thread.CurrentThread.ManagedThreadId;
+        _tracers.GetOrAdd(threadId, _ =>  new ThreadTracer(threadId)).StartTrace();
     }
 
     public void StopTrace()
@@ -25,13 +25,13 @@ public class Tracer : ITracer
 
     public TraceResult GetTraceResult()
     {
-        var _completeTracers = new List<ThreadResult>();
+        var completeTracers = new List<ThreadResult>();
         
         foreach (var tv in _tracers.Values)
         {
-            _completeTracers.Add(tv.GetTraceResult());
+            completeTracers.Add(tv.GetTraceResult());
         }
 
-        return new TraceResult(_completeTracers);
+        return new TraceResult(completeTracers);
     }
 }

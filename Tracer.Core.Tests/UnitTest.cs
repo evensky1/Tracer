@@ -3,12 +3,12 @@ namespace Tracer.Core.Tests;
 public class Tests
 {
     private ITracer _tracer;
-    private const int WAIT_CONST = 100;
+    private const int WAIT_TIME = 100;
 
     private void FirstMethod()
     {
         _tracer.StartTrace();
-        Thread.Sleep(WAIT_CONST);
+        Thread.Sleep(WAIT_TIME);
         _tracer.StopTrace();
     }
 
@@ -23,7 +23,7 @@ public class Tests
     private void ThirdMethod()
     {
         _tracer.StartTrace();
-        Thread.Sleep(WAIT_CONST);
+        Thread.Sleep(WAIT_TIME);
         _tracer.StopTrace();
     }
 
@@ -42,7 +42,7 @@ public class Tests
     public void Time_Format_Test()
     {
         FirstMethod();
-        var time = _tracer.GetTraceResult().Threads[0].methods[0].Time;
+        var time = _tracer.GetTraceResult().Threads[0].Methods[0].Time;
         Assert.That("ms", Is.EqualTo(time.Substring(time.Length - 2)));
     }
 
@@ -50,15 +50,15 @@ public class Tests
     public void Method_Time_Count_Default_Scenario()
     {
         FirstMethod();
-        var time = _tracer.GetTraceResult().Threads[0].methods[0].Time;
-        Assert.True(ParseMyTimeToLong(time) >= WAIT_CONST);
+        var time = _tracer.GetTraceResult().Threads[0].Methods[0].Time;
+        Assert.True(ParseMyTimeToLong(time) >= WAIT_TIME);
     }
 
     [Test]
     public void Method_Time_Count_With_Child_Methods()
     {
         SecondMethod();
-        var secondMethod = _tracer.GetTraceResult().Threads[0].methods[0];
+        var secondMethod = _tracer.GetTraceResult().Threads[0].Methods[0];
         long summaryTime = 0;
         secondMethod.InnerMethods.ForEach(m => summaryTime += ParseMyTimeToLong(m.Time));
         Assert.True(ParseMyTimeToLong(secondMethod.Time) >= summaryTime);
@@ -70,7 +70,7 @@ public class Tests
         FirstMethod();
         SecondMethod();
         ThirdMethod();
-        var rootMethods = _tracer.GetTraceResult().Threads[0].methods;
+        var rootMethods = _tracer.GetTraceResult().Threads[0].Methods;
         Assert.That("FirstMethod", Is.EqualTo(rootMethods[0].Name));
         Assert.That("SecondMethod", Is.EqualTo(rootMethods[1].Name));
         Assert.That("ThirdMethod", Is.EqualTo(rootMethods[2].Name));
@@ -80,7 +80,7 @@ public class Tests
     public void Method_Name_Child_Methods()
     {
         SecondMethod();
-        var childMethods = _tracer.GetTraceResult().Threads[0].methods[0].InnerMethods;
+        var childMethods = _tracer.GetTraceResult().Threads[0].Methods[0].InnerMethods;
         Assert.That("FirstMethod", Is.EqualTo(childMethods[0].Name));
         Assert.That("ThirdMethod", Is.EqualTo(childMethods[1].Name));
     }
@@ -121,11 +121,19 @@ public class Tests
         ThirdMethod();
         var currentThread = _tracer.GetTraceResult().Threads[0];
         long rootMethodsTime = 0;
-        foreach (var methodResult in currentThread.methods)
+        foreach (var methodResult in currentThread.Methods)
         {
             rootMethodsTime += ParseMyTimeToLong(methodResult.Time);
         }
 
         Assert.That(ParseMyTimeToLong(currentThread.Time), Is.EqualTo(rootMethodsTime));
+    }
+
+    [Test]
+    public void Class_Name_Default_Scenario()
+    {
+        FirstMethod();
+        var firstMethod = _tracer.GetTraceResult().Threads[0].Methods[0];
+        Assert.That(firstMethod.ClassName, Is.EqualTo(this.GetType().Name));
     }
 }

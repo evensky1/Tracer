@@ -7,46 +7,29 @@ namespace Tracer.Serialization;
 
 public class Serializator
 {
-    private const string XML_PATH =
-        "C:\\Users\\fromt\\RiderProjects\\Tracer.Serialization\\Tracer.Serialization.Xml\\bin\\Debug\\net6.0\\Tracer.Serialization.Xml.dll";
-
-    private const string JSON_PATH =
-        "C:\\Users\\fromt\\RiderProjects\\Tracer.Serialization\\Tracer.Serialization.Json\\bin\\Debug\\net6.0\\Tracer.Serialization.Json.dll";
-
-    private const string YAML_PATH =
-        "C:\\Users\\fromt\\RiderProjects\\Tracer.Serialization\\Tracer.Serialization.Yaml\\bin\\Debug\\net6.0\\Tracer.Serialization.Yaml.dll";
-
-    private const string XML_TYPE = "Tracer.Serialization.Xml.XmlTraceResultSerializer";
-    private const string JSON_TYPE = "Tracer.Serialization.Json.JsonTraceResultSerializer";
-    private const string YAML_TYPE = "Tracer.Serialization.Yaml.YamlTraceResultSerializer";
-
+    private const string PATH =
+        "C:\\Users\\fromt\\RiderProjects\\Tracer.Serialization\\plugins";
+    
     public Serializator()
     {
     }
 
-    public void SerializeXml(TraceResult traceResult)
-    {
-        var serializator = MyLoader(XML_PATH, XML_TYPE);
-        MySerializer(traceResult, serializator);
-    }
-
-    public void SerializeJson(TraceResult traceResult)
-    {
-        var serializator = MyLoader(JSON_PATH, JSON_TYPE);
-        MySerializer(traceResult, serializator);
-    }
-
-    public void SerializeYaml(TraceResult traceResult)
-    {
-        var serializator = MyLoader(YAML_PATH, YAML_TYPE);
-        MySerializer(traceResult, serializator);
-    }
-
-    private ITraceResultSerializer MyLoader(string path, string typeName)
+    private ITraceResultSerializer MyLoader(string path)
     {
         var assembly = Assembly.LoadFrom(path);
-        var type = assembly.GetType(typeName);
+        var type = assembly.GetExportedTypes()[0]; //should find ITraceResultSerializer realization
         return (ITraceResultSerializer)Activator.CreateInstance(type);
+    }
+
+    public void SerializeAll(TraceResult traceResult)
+    {
+        var files = Directory.GetFiles(PATH);
+
+        foreach (var serializer in files)
+        {
+            var serializator = MyLoader(serializer);
+            MySerializer(traceResult, serializator);
+        }
     }
 
     private void MySerializer(TraceResult traceResult, ITraceResultSerializer serializer)

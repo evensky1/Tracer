@@ -4,7 +4,7 @@ public class ThreadResult
 {
     public int Id { get; }
     public string Time { get; }
-    public IReadOnlyList<MethodResult> methods { get; }
+    public IReadOnlyList<MethodResult> Methods { get; }
 
     public ThreadResult() {}
     
@@ -12,6 +12,6 @@ public class ThreadResult
     {
         Id = id;
         Time = time;
-        this.methods = methods;
+        Methods = methods;
     }
 }
